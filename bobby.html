@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es" data-tone="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bobby Moon · Studios 903</title>
+<meta name="description" content="Bobby Moon, la serie animada original de Studios 903: un niño astronauta que viaja entre mundos junto a Orby.">
+<meta name="theme-color" content="#07070B">
+<link rel="canonical" href="https://studios903.com/bobby.html">
+<meta property="og:title" content="Bobby Moon · Studios 903">
+<meta property="og:description" content="Un niño astronauta que viaja entre mundos. Una serie original de Studios 903.">
+<meta property="og:url" content="https://studios903.com/bobby.html">
+<style>
+@font-face{font-family:'Kumbh Sans';src:url(assets/fonts/kumbh-sans.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Antonio';src:url(assets/fonts/antonio.woff2) format('woff2');font-weight:100 700;font-display:swap}
+:root{--m:#CC0A5E;--t:#1F8991;--bg:#07070B;--fg:#FAFAF8;--mute:rgba(250,250,248,.66);--line:rgba(250,250,248,.16);--pad:clamp(20px,5vw,80px);--max:1320px;--ease:cubic-bezier(.16,.84,.32,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'Kumbh Sans',system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.ant{font-family:'Antonio',sans-serif;font-weight:600;text-transform:uppercase;line-height:.9}
+.lead{font-size:clamp(19px,1.55vw,23px);color:var(--mute);max-width:40ch}
+.btn{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 26px;border-radius:40px;font:600 16px/1 'Kumbh Sans',sans-serif;text-decoration:none;border:1.5px solid var(--fg);transition:background .3s,color .3s,transform .35s var(--ease)}
+.btn:hover{transform:translateY(-3px)}
+.btn.solid{background:var(--fg);color:#07070B}.btn.solid:hover{background:var(--m);border-color:var(--m);color:#fff}
+.btn.ghost:hover{background:var(--fg);color:#07070B}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff8,transparent),radial-gradient(1px 1px at 27% 72%,#fff9,transparent),radial-gradient(1.5px 1.5px at 44% 12%,#fff7,transparent),radial-gradient(1px 1px at 63% 41%,#fffa,transparent),radial-gradient(2px 2px at 78% 22%,#fff6,transparent),radial-gradient(1px 1px at 88% 66%,#fff9,transparent),radial-gradient(1.5px 1.5px at 6% 88%,#fff7,transparent),radial-gradient(1px 1px at 53% 92%,#fff8,transparent),radial-gradient(1px 1px at 35% 48%,#fff6,transparent),radial-gradient(1.5px 1.5px at 95% 8%,#fff9,transparent);background-size:520px 520px}
+main,header,footer{position:relative;z-index:1}
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(7,7,11,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav ul a{text-decoration:none;font-size:15px;color:var(--mute)}.nav ul a:hover{color:var(--fg)}
+.nav .back{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:9px 16px}
+.nav .back:hover{border-color:var(--fg)}
+@media(max-width:860px){.nav ul{display:none}}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:100px 0 60px;overflow:hidden}
+.hero .glow{position:absolute;right:-10vw;top:50%;transform:translateY(-50%);width:70vw;height:70vw;border-radius:50%;background:radial-gradient(circle,rgba(31,137,145,.32),rgba(204,10,94,.12) 45%,transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(90px,15vw,250px);margin:18px 0 26px}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:8px 15px;font-size:14px;color:var(--mute)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+#bobbyChar{position:absolute;right:5vw;top:50%;transform:translateY(-46%);width:min(44vw,620px);height:min(84vh,780px)}
+@media(max-width:760px){#bobbyChar{right:-8vw;top:28%;width:76vw;height:50vh}.hero .wrap{align-self:flex-end}}
+.sec{padding:clamp(90px,13vh,160px) 0;border-top:1px solid var(--line)}
+.sec h2{font-size:clamp(52px,7vw,112px);margin-bottom:14px}
+.sec .lead{margin-bottom:44px}
+.vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.vgrid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.vgrid,.vgrid.three{grid-template-columns:1fr}}
+.vcard h3{font-size:19px;margin-top:12px}
+.vcard span{color:var(--mute);font-size:15px}
+.frame{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 0 0 1px var(--line)}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.soon{position:absolute;inset:0;display:flex;align-items:flex-end;padding:22px;background:radial-gradient(circle at 70% 40%,rgba(204,10,94,.35),transparent 55%),radial-gradient(circle at 30% 70%,rgba(31,137,145,.35),transparent 55%),#0b0b10}
+.soon b{font:600 clamp(26px,3vw,40px)/1 'Antonio',sans-serif;text-transform:uppercase}
+.gal{columns:3 280px;column-gap:16px}
+.gal button{all:unset;cursor:zoom-in;display:block;margin-bottom:16px;border-radius:12px;overflow:hidden;break-inside:avoid;box-shadow:0 0 0 1px var(--line)}
+.gal img{width:100%;display:block;transition:transform .6s var(--ease)}
+.gal button:hover img{transform:scale(1.04)}
+.gal .ph{aspect-ratio:4/5}.gal .ph.w{aspect-ratio:4/3}
+.chars{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+@media(max-width:800px){.chars{grid-template-columns:1fr}}
+.char{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.02)}
+.char .img{aspect-ratio:4/3;position:relative}
+.char .img img{width:100%;height:100%;object-fit:cover;display:block}
+.char .txt{padding:26px}
+.char h3{font:600 clamp(40px,4vw,62px)/1 'Antonio',sans-serif;text-transform:uppercase;margin-bottom:10px}
+.char p{color:var(--mute)}
+.yt{padding:clamp(90px,14vh,170px) 0;text-align:center;border-top:1px solid var(--line);background:radial-gradient(60vw 40vh at 50% 100%,rgba(204,10,94,.25),transparent 70%)}
+.yt h2{font-size:clamp(56px,8vw,130px);margin-bottom:20px}
+.yt .lead{margin:0 auto 34px}
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+dialog{border:0;padding:0;background:transparent;max-width:92vw;max-height:90vh;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.85)}
+dialog img{max-width:92vw;max-height:86vh;display:block;border-radius:10px}
+dialog button{position:fixed;top:18px;right:18px;width:46px;height:46px;border-radius:50%;border:1px solid #fff5;background:#0008;color:#fff;font-size:22px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" aria-label="Studios 903, inicio"><svg style="height:38px;width:auto" xmlns="http://www.w3.org/2000/svg" viewBox="413.6 248.4 994.7 605.8" style="" aria-hidden="true" focusable="false"><g fill="#FAFAF8"><g transform="translate(0 219.1)"><path d="M 559.742188 451.007812 C 606.171875 451.007812 636.246094 418.296875 636.246094 379.25 C 636.246094 342.84375 606.171875 311.1875 560.269531 311.1875 C 514.890625 311.1875 484.289062 342.84375 484.289062 381.363281 C 484.289062 421.460938 515.417969 451.007812 559.742188 451.007812 M 706.421875 386.636719 C 706.421875 474.753906 650.492188 550.730469 558.6875 635.152344 L 484.816406 612.464844 C 533.359375 567.089844 567.65625 534.375 597.730469 494.804688 C 581.375 501.664062 562.378906 505.882812 541.273438 505.882812 C 464.238281 505.882812 413.585938 453.648438 413.585938 380.304688 C 413.585938 303.800781 471.625 248.398438 559.210938 248.398438 C 647.328125 248.398438 706.421875 305.382812 706.421875 386.636719 "/><path d="M 1272.054688 399.300781 C 1351.726562 399.300781 1401.324219 437.292969 1401.324219 511.160156 C 1401.324219 591.359375 1341.699219 632.515625 1258.863281 632.515625 C 1188.160156 632.515625 1140.671875 605.078125 1119.566406 561.285156 L 1175.496094 521.183594 C 1190.796875 552.84375 1220.871094 569.726562 1259.390625 569.726562 C 1302.65625 569.726562 1330.09375 547.039062 1330.09375 509.578125 C 1330.09375 471.058594 1300.015625 448.898438 1251.476562 448.898438 C 1238.8125 448.898438 1224.566406 450.480469 1208.207031 457.339844 L 1180.242188 416.714844 L 1285.769531 318.046875 L 1149.113281 318.046875 L 1149.113281 254.203125 L 1384.964844 254.203125 L 1384.964844 304.855469 Z M 1272.054688 399.300781 "/><path d="M 739.476562 450.300781 L 742.203125 481.105469 C 711.582031 506.359375 703.800781 525.898438 706.328125 531.335938 C 715.847656 551.8125 837.035156 515.484375 912.117188 485.691406 C 928.429688 479.222656 981.996094 457.367188 1043.003906 415.320312 C 1059.8125 403.734375 1119.730469 360.003906 1112.875 345.164062 C 1108.53125 335.761719 1082.75 339.207031 1065 342.648438 L 1053.929688 319.542969 C 1053.929688 319.542969 1107.148438 308.453125 1130.339844 327.3125 C 1146.085938 340.117188 1161.675781 365.46875 1129.34375 401.871094 C 1094.296875 441.339844 1018.351562 494.835938 930.136719 532.957031 C 822.84375 579.324219 745.914062 586.65625 712.605469 578.832031 C 679.296875 571.007812 672.488281 535.316406 685.097656 513.085938 C 697.710938 490.859375 739.476562 450.300781 739.476562 450.300781 "/><path d="M 911.402344 252 C 815.375 252 747.160156 318.640625 747.160156 443 C 747.160156 473.523438 751.445312 500.714844 759.363281 524.328125 C 778.851562 520.523438 803.132812 514.03125 828.746094 506.0625 C 822.460938 488.414062 819.050781 467.292969 819.050781 443 C 819.050781 360.617188 856.304688 317.066406 911.402344 317.066406 C 964.988281 317.066406 999.453125 356.738281 1002.484375 431.976562 C 1013.863281 425.171875 1025.890625 417.507812 1038.367188 408.90625 C 1044.757812 404.503906 1057.023438 395.472656 1069.210938 385.6875 C 1051.554688 298.28125 991.863281 252 911.402344 252 M 989.101562 516.835938 C 973.957031 550.511719 946.867188 568.933594 911.402344 568.933594 C 900.449219 568.933594 890.207031 567.128906 880.820312 563.609375 C 848.636719 574.652344 819.871094 581.960938 795.257812 586.308594 C 824.261719 617.503906 864.621094 634 911.402344 634 C 1001.550781 634 1066.265625 572.949219 1073.84375 464.746094 C 1048.9375 482.484375 1020.050781 500.472656 989.101562 516.835938 "/></g><g transform="translate(0 -433.14)"><path d="M420.0108744995117 833.1785564697266 435.570560008138 808.0649748201497Q443.25359186360674 814.1759774145507 450.3581942240397 818.111598063151Q457.46279658447264 822.0472187117513 464.50928537760416 823.8987883874511Q471.5557741707357 825.750358063151 478.87902963053386 825.750358063151Q487.73561701985676 825.750358063151 494.22583927368163 823.1736340441894Q500.7160615275065 820.5969100252279 504.2891455464681 815.9084380957031Q507.8622295654297 811.2199661661784 507.8622295654297 804.9705194254557Q507.8622295654297 797.7634640722656 503.37582230346675 792.8785019991049Q498.88941504150387 787.993539925944 491.61319167114254 784.3568083577475Q484.3369683007812 780.7200767895508 475.92323460611976 777.2826226269531Q467.90253525472 773.9724905908204 459.74899330891924 770.0673135998536Q451.5954513631185 766.1621366088867 444.8451184444173 760.7402836901856Q438.09478552571613 755.3184307714844 433.97650293131505 747.5551359069824Q429.85822033691403 739.7918410424804 429.85822033691403 728.7045859440104Q429.85822033691403 714.2518589900717 437.13993714721676 703.6600101436361Q444.42165395751954 693.0681612972005 457.1861110017904 687.3307903243001Q469.9505680460612 681.5934193513997 486.3129917569987 681.5934193513997Q497.87627741373694 681.5934193513997 510.28091752034504 684.6406129187012Q522.6855576269531 687.6878064860026 534.9739435709636 693.9261041788737L522.0103037190755 720.462257035319Q514.139062421875 715.740621756185 505.12201658447265 713.0310821708172Q496.1049707470703 710.3215425854493 488.0953393595378 710.3215425854493Q480.72775798828127 710.3215425854493 475.1923841129557 712.5827485502116Q469.6570102376302 714.843954514974 466.5710382548014 718.9512096875001Q463.48506627197264 723.0584648600261 463.48506627197264 728.5551008618164Q463.48506627197264 735.1200521427409 467.8220154797363 739.8002028283692Q472.1589646875 744.4803535139974 479.180557318929 748.1032433703614Q486.20214995035803 751.7261332267253 494.2560802213542 755.2853620198567Q502.47605697835286 758.8667267407227 510.8344103116862 763.0486703983561Q519.1927636450196 767.2306140559896 526.1229982755534 772.9126316955567Q533.0532329060873 778.5946493351237 537.2711542032878 786.4963342899578Q541.4890755004883 794.3980192447917 541.4890755004883 805.4797538753255Q541.4890755004883 820.0265990641276 533.8254193387859 831.0252969376627Q526.1617631770833 842.0239948111979 512.4009461328125 848.1349974055989Q498.64012908854164 854.246 480.3237367651367 854.246Q463.68455990152995 854.246 448.42368238932295 848.8878081445312Q433.1628048771159 843.5296162890625 420.0108744995117 833.1785564697266Z"/><path d="M635.2655383460286 850.9248H602.3859556539712V713.6427425854492H553.0439051282551V684.8648000000001H684.6075888717447V713.6427425854492H635.2655383460286Z"/><path d="M841.404266065511 684.8648000000001V776.2753027750651Q841.404266065511 800.5311307389323 832.741476155843 818.0283180541992Q824.078686246175 835.5255053694661 807.8906167511393 844.885752684733Q791.7025472561035 854.246 769.1017988243001 854.246Q746.6117570591633 854.246 730.393243906494 844.885752684733Q714.1747307538249 835.5255053694661 705.5119408441569 818.0283180541992Q696.8491509344889 800.5311307389323 696.8491509344889 776.2753027750651V684.8648000000001H729.7287336265462V772.2899168310547Q729.7287336265462 789.8148281119792 734.2151544025064 801.643880041504Q738.7015751784668 813.4729319710286 747.4723655768229 819.4704946927898Q756.243155975179 825.4680574145508 769.1017988243001 825.4680574145508Q782.0102610248209 825.4680574145508 790.781051423177 819.4704946927898Q799.5518418215331 813.4729319710286 804.0382625974935 801.643880041504Q808.5246833734537 789.8148281119792 808.5246833734537 772.2899168310547V684.8648000000001Z"/><path d="M861.1252110880534 850.9248V684.8648000000001H914.9783352994792Q945.1071640926108 684.8648000000001 967.143324741211 695.0110619458007Q989.1794853898112 705.1573238916015 1001.2132946508789 723.7864875492351Q1013.2471039119466 742.4156512068685 1013.2471039119466 767.8948Q1013.2471039119466 793.2632421264649 1001.2132946508789 811.9477591174316Q989.1794853898112 830.6322761083984 967.143324741211 840.7785380541992Q945.1071640926108 850.9248 914.9783352994792 850.9248ZM894.0047937801107 822.1468574145508H916.1684252091472Q936.4333737890626 822.1468574145508 950.5983607104492 815.7977989990235Q964.763347631836 809.4487405834961 972.191802804362 797.3124648156738Q979.6202579768881 785.1761890478516 979.6202579768881 767.8948Q979.6202579768881 750.5525236368815 972.191802804362 738.4466915266927Q964.763347631836 726.3408594165039 950.5983607104492 719.9918010009766Q936.4333737890626 713.6427425854492 916.1684252091472 713.6427425854492H894.0047937801107Z"/><path d="M1036.0020001539713 850.9248V684.8648000000001H1068.8815828460286V850.9248Z"/><path d="M1184.3591479909667 854.246Q1165.445735406853 854.246 1149.4980354468753 847.7945696756999Q1133.5503354868977 841.3431393513997 1121.7739171987305 829.6635860180663Q1109.997498910563 817.984032684733 1103.5156249286294 802.2362312134326Q1097.0337509466958 786.488429742132 1097.0337509466958 767.9226006391251Q1097.0337509466958 749.2462606486002 1103.5156249286294 733.5010043062337Q1109.997498910563 717.7557479638672 1121.7637693128527 706.0923260736646Q1133.530039715142 694.428904183462 1149.4985495468206 687.986252091731Q1165.4670593784992 681.5436 1184.3895916486001 681.5436Q1203.3121239187012 681.5436 1219.2151325311686 687.9950303243002Q1235.118141143636 694.4464606486002 1246.8336721165365 706.1011043062338Q1258.5492030894368 717.7557479638672 1265.0310770713704 733.4932257505388Q1271.512951053304 749.2307035372105 1271.512951053304 767.8948Q1271.512951053304 786.4781147756554 1265.0378008239766 802.2407478442916Q1258.562650594649 818.0033809129278 1246.8403958691424 829.6732601321637Q1235.118141143636 841.3431393513997 1219.2069335770157 847.7945696756999Q1203.2957260103954 854.246 1184.3591479909667 854.246ZM1184.3591479909667 825.4680574145508Q1195.839491488688 825.4680574145508 1205.6169907093924 821.1135623236835Q1215.3944899300968 816.759067232816 1222.6271605865084 808.9302409524269Q1229.8598312429199 801.1014146720378 1233.8729681805826 790.63682038208Q1237.8861051182453 780.1722260921224 1237.8861051182453 767.8948Q1237.8861051182453 755.6173739078777 1233.8729681805826 745.1278699422201Q1229.8598312429199 734.6383659765625 1222.6332521381978 726.7957263714134Q1215.406673033476 718.9530867662643 1205.6374086882038 714.6373146758567Q1195.8681443429314 710.3215425854493 1184.3591479909667 710.3215425854493Q1172.8788044932453 710.3215425854493 1163.0663070519545 714.6373146758567Q1153.2538096106637 718.9530867662643 1145.9952498595717 726.7957263714134Q1138.7366901084797 734.6383659765625 1134.6986434951173 745.1278699422201Q1130.6605968817546 755.6173739078777 1130.6605968817546 767.8948Q1130.6605968817546 780.1722260921224 1134.6986434951173 790.66173005778Q1138.7366901084797 801.1512340234375 1145.9952498595717 808.9938736285867Q1153.2538096106637 816.8365132337358 1163.0663070519545 821.1522853241433Q1172.8788044932453 825.4680574145508 1184.3591479909667 825.4680574145508Z"/><path d="M1286.7718854995117 833.1785564697266 1302.331571008138 808.0649748201497Q1310.0146028636068 814.1759774145507 1317.11920522404 818.111598063151Q1324.2238075844728 822.0472187117513 1331.2702963776042 823.8987883874511Q1338.3167851707358 825.750358063151 1345.6400406305338 825.750358063151Q1354.4966280198569 825.750358063151 1360.9868502736817 823.1736340441894Q1367.4770725275066 820.5969100252279 1371.0501565464683 815.9084380957031Q1374.6232405654298 811.2199661661784 1374.6232405654298 804.9705194254557Q1374.6232405654298 797.7634640722656 1370.136833303467 792.8785019991049Q1365.650426041504 787.993539925944 1358.3742026711427 784.3568083577475Q1351.0979793007814 780.7200767895508 1342.68424560612 777.2826226269531Q1334.6635462547201 773.9724905908204 1326.5100043089192 770.0673135998536Q1318.3564623631185 766.1621366088867 1311.6061294444173 760.7402836901856Q1304.8557965257162 755.3184307714844 1300.737513931315 747.5551359069824Q1296.619231336914 739.7918410424804 1296.619231336914 728.7045859440104Q1296.619231336914 714.2518589900717 1303.9009481472167 703.6600101436361Q1311.1826649575196 693.0681612972005 1323.9471220017904 687.3307903243001Q1336.7115790460612 681.5934193513997 1353.0740027569987 681.5934193513997Q1364.637288413737 681.5934193513997 1377.0419285203452 684.6406129187012Q1389.4465686269532 687.6878064860026 1401.7349545709635 693.9261041788737L1388.7713147190755 720.462257035319Q1380.900073421875 715.740621756185 1371.8830275844725 713.0310821708172Q1362.8659817470702 710.3215425854493 1354.8563503595378 710.3215425854493Q1347.4887689882812 710.3215425854493 1341.9533951129556 712.5827485502116Q1336.4180212376302 714.843954514974 1333.3320492548014 718.9512096875001Q1330.2460772719728 723.0584648600261 1330.2460772719728 728.5551008618164Q1330.2460772719728 735.1200521427409 1334.5830264797364 739.8002028283692Q1338.9199756875 744.4803535139974 1345.941568318929 748.1032433703614Q1352.963160950358 751.7261332267253 1361.0170912213541 755.2853620198567Q1369.237067978353 758.8667267407227 1377.5954213116863 763.0486703983561Q1385.9537746450196 767.2306140559896 1392.8840092755536 772.9126316955567Q1399.8142439060873 778.5946493351237 1404.0321652032878 786.4963342899578Q1408.2500865004884 794.3980192447917 1408.2500865004884 805.4797538753255Q1408.2500865004884 820.0265990641276 1400.5864303387857 831.0252969376627Q1392.9227741770833 842.0239948111979 1379.1619571328124 848.1349974055989Q1365.4011400885418 854.246 1347.0847477651369 854.246Q1330.44557090153 854.246 1315.184693389323 848.8878081445312Q1299.9238158771159 843.5296162890625 1286.7718854995117 833.1785564697266Z"/></g></g></svg></a>
+    <ul><li><a href="#capitulos">Capítulos</a></li><li><a href="#making">Making of</a></li><li><a href="#galeria">Galería</a></li><li><a href="#personajes">Personajes</a></li></ul>
+    <a class="back" href="index.html">&#8592; Volver al estudio</a>
+  </div>
+</header>
+<main>
+  <section class="hero" id="inicio" data-orby="0.8,0.3" data-orby-orbit="#bobbyChar">
+    <div class="glow" aria-hidden="true"></div>
+    <canvas id="bobbyChar" role="img" aria-label="Bobby Moon"></canvas>
+    <div class="wrap" style="width:100%;position:relative">
+      <span class="tag">Serie original de Studios 903</span>
+      <h1 class="ant">Bobby<br>Moon</h1>
+      <p class="lead" id="sinopsis"></p>
+      <div class="ctas"><a class="btn solid" href="#capitulos">Ver capítulos &#8594;</a><a class="btn ghost" id="ytTop" href="#" target="_blank" rel="noopener">Canal de YouTube</a></div>
+    </div>
+  </section>
+  <section class="sec" id="capitulos" data-orby="0.955,0.2"><div class="wrap"><h2 class="ant">Capítulos</h2><p class="lead">Episodios completos de la serie.</p><div class="vgrid" id="gCap"></div></div></section>
+  <section class="sec" id="making" data-orby="0.045,0.25"><div class="wrap"><h2 class="ant">Making of</h2><p class="lead">Cómo construimos el universo de Bobby: diseño, modelado, animación y render.</p><div class="vgrid three" id="gMak"></div></div></section>
+  <section class="sec" id="galeria" data-orby="0.955,0.2"><div class="wrap"><h2 class="ant">Galería</h2><p class="lead">Arte, fotogramas y momentos de la serie.</p><div class="gal" id="gGal"></div></div></section>
+  <section class="sec" id="personajes" data-orby="0.5,0.12"><div class="wrap"><h2 class="ant">Personajes</h2><p class="lead">Un niño curioso y su mejor amigo, un robot que no deja de dar vueltas.</p><div class="chars" id="gChars"></div></div></section>
+  <section class="yt" data-orby="0.5,0.2"><div class="wrap"><h2 class="ant">Síguenos<br>en YouTube</h2><p class="lead">Nuevos capítulos y contenido detrás de cámaras.</p><a class="btn solid" id="ytBottom" href="#" target="_blank" rel="noopener">Ver el canal &#8594;</a></div></section>
+</main>
+<footer><div class="wrap"><span>Bobby Moon es una serie original de STUDIOS 903 S.A.S. Bogotá, Colombia.</span><a href="index.html">studios903.com</a></div></footer>
+<dialog id="lb"><button type="button" aria-label="Cerrar">&#215;</button><img alt=""></dialog>
+
+<script>
+/* =====================================================================
+   CONTENIDO EDITABLE DE LA PÁGINA DE BOBBY MOON
+   - Videos: enlace de YouTube (youtube.com/watch?v=..., youtu.be/...) o de Vimeo.
+   - Imágenes: ruta del archivo, por ejemplo 'assets/bobby/galeria/01.jpg'.
+   ===================================================================== */
+var SERIE = {
+  sinopsis: 'Un niño astronauta que viaja entre mundos junto a Orby, su amigo robot. Cada capítulo es un planeta nuevo por descubrir.',
+  canalYouTube: '',            // enlace del canal, por ejemplo 'https://www.youtube.com/@bobbymoon'
+  capitulos: [ {titulo:'Capítulo 1', url:''}, {titulo:'Capítulo 2', url:''} ],
+  makingOf:  [ {titulo:'Diseño de personajes', url:''}, {titulo:'Modelado y rig', url:''}, {titulo:'Animación y render', url:''} ],
+  galeria:   [ '', '', '', '', '', '' ],
+  personajes:[
+    {nombre:'Bobby', texto:'Un niño astronauta curioso y valiente que viaja entre mundos para entender cómo funciona el universo.', imagen:''},
+    {nombre:'Orby', texto:'Su amigo y compañero de viaje: un robot esférico volador rodeado de anillos que nunca deja de dar vueltas.', imagen:''}
+  ]
+};
+/* Renders interactivos de Bobby (mismo formato que en la página principal). */
+window.BOBBY = window.BOBBY || { poses:[], mirada:null };
+window.ORBY_MODELO = '';
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/js/bobby.js"></script>
+<script>
+(function(){
+  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function embed(u){
+    if(!u) return '';
+    var y=String(u).match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
+    if(y) return 'https://www.youtube-nocookie.com/embed/'+y[1]+'?rel=0';
+    var v=String(u).match(/vimeo\.com\/(?:video\/)?(\d{5,})(?:\/([0-9a-f]{6,}))?/i);
+    if(v) return 'https://player.vimeo.com/video/'+v[1]+'?'+(v[2]?'h='+v[2]+'&':'')+'title=0&byline=0&portrait=0&dnt=1&color=CC0A5E';
+    return '';
+  }
+  function vcard(x){var src=embed(x.url);return '<div class="vcard"><div class="frame">'+(src?'<iframe src="'+src+'" title="'+esc(x.titulo)+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>':'<div class="soon"><b>Próximamente</b></div>')+'</div><h3>'+esc(x.titulo)+'</h3></div>';}
+  document.getElementById('sinopsis').textContent=SERIE.sinopsis;
+  document.getElementById('gCap').innerHTML=SERIE.capitulos.map(vcard).join('');
+  document.getElementById('gMak').innerHTML=SERIE.makingOf.map(vcard).join('');
+  document.getElementById('gGal').innerHTML=SERIE.galeria.map(function(src,i){return src?'<button type="button" data-src="'+esc(src)+'"><img src="'+esc(src)+'" alt="Bobby Moon, imagen '+(i+1)+'" loading="lazy"></button>':'<div class="frame ph'+(i%3?'':' w')+'" style="margin-bottom:16px;aspect-ratio:auto;break-inside:avoid"><div class="soon"><b>Pronto</b></div></div>';}).join('');
+  document.getElementById('gChars').innerHTML=SERIE.personajes.map(function(c,i){return '<article class="char"><div class="img">'+(c.imagen?'<img src="'+esc(c.imagen)+'" alt="'+esc(c.nombre)+'">':'<div class="soon" style="background:radial-gradient(circle at 60% 40%,'+(i?'rgba(31,137,145,.5)':'rgba(204,10,94,.5)')+',transparent 60%),#0b0b10"><b>'+esc(c.nombre)+'</b></div>')+'</div><div class="txt"><h3>'+esc(c.nombre)+'</h3><p>'+esc(c.texto)+'</p></div></article>';}).join('');
+  [].slice.call(document.querySelectorAll('.gal .ph')).forEach(function(el,i){el.style.height=(i%3?340:230)+'px';});
+  ['ytTop','ytBottom'].forEach(function(id){var a=document.getElementById(id); if(SERIE.canalYouTube) a.href=SERIE.canalYouTube; else {a.removeAttribute('href');a.style.opacity='.45';a.title='Muy pronto';a.innerHTML='Canal de YouTube · muy pronto';}});
+  var lb=document.getElementById('lb');
+  document.getElementById('gGal').addEventListener('click',function(e){var b=e.target.closest('button[data-src]');if(!b)return;lb.querySelector('img').src=b.dataset.src;lb.showModal();});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target.tagName==='BUTTON')lb.close();});
+  var hero=document.getElementById('inicio');
+  if(window.mountBobby) window.mountBobby(document.getElementById('bobbyChar'),function(){var r=hero.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/Math.max(r.height,1)*1.4));});
+  document.documentElement.setAttribute('data-orby-start','0');
+})();
+</script>
+<script src="assets/js/orby.js"></script>
+</body>
+</html>

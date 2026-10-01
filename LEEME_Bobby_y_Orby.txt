@@ -1,0 +1,33 @@
+STUDIOS 903 · Cómo preparar a Bobby y a Orby para la web
+=========================================================
+
+1. BOBBY (renders interactivos, el modelo nunca se sube a la web)
+-----------------------------------------------------------------
+Se exportan imágenes PNG o WebP con fondo transparente (alpha), todas del mismo tamaño
+y con el personaje en la misma posición y encuadre. Tamaño recomendado: 900 x 1100 px.
+
+A) Secuencia de poses (avanza cuando el usuario hace scroll en la sección Bobby Moon)
+   - 24 a 48 cuadros. Ejemplo: Bobby flotando, saluda, gira y queda mirando a cámara.
+   - El último cuadro debe ser la pose "neutral" mirando a cámara.
+   - Carpeta: assets/bobby/pose/  ->  0001.webp, 0002.webp, ...
+
+B) Cuadrícula de mirada (Bobby sigue el mouse con cabeza y ojos, en la pose final)
+   - 7 columnas (giro de izquierda a derecha: -30° a +30°)
+   - 5 filas (inclinación de arriba a abajo: +20° a -20°)
+   - 35 renders en total. Solo cambian cabeza, ojos y un poco el torso.
+   - Carpeta: assets/bobby/mirada/  ->  f01_c1.webp ... f05_c7.webp
+     (f = fila de arriba a abajo, c = columna de izquierda a derecha)
+
+Consejo: render en Maya con cámara fija, luz suave y sin fondo. Comprimir a WebP calidad 80.
+Cuando estén listas, se configuran en window.BOBBY (index.html y bobby.html).
+
+2. ORBY (modelo 3D que recorre la página)
+-----------------------------------------
+   - Formato ideal: .glb (también sirve .fbx u .obj; se convierte a .glb).
+   - Menos de 30.000 polígonos y texturas de máximo 1024 px.
+   - Nombra los anillos con la palabra "ring" o "anillo" para que giren solos.
+   - Si tiene animaciones (flotar, parpadear), inclúyelas en el mismo archivo.
+   - Se guarda en assets/models/orby.glb y se activa con window.ORBY_MODELO.
+   Nota: cualquier modelo 3D que se muestre en una web puede extraerse con
+   conocimientos técnicos. Se puede dificultar (compresión, sin texturas originales),
+   pero no impedir del todo.
