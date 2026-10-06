@@ -13,7 +13,8 @@
   var SIZE=function(){return window.innerWidth<760?78:124;};
   var cv=document.createElement('canvas');
   cv.setAttribute('aria-hidden','true');
-  cv.style.cssText='position:fixed;left:0;top:0;z-index:45;pointer-events:none;opacity:0;transition:opacity .6s ease;will-change:transform';
+  cv.style.cssText='position:fixed;left:0;top:0;z-index:45;pointer-events:none;opacity:0;transition:opacity .6s ease;will-change:transform;cursor:pointer;touch-action:manipulation';
+  cv.setAttribute('role','button'); cv.setAttribute('tabindex','-1'); cv.setAttribute('aria-label','Orby, asistente de chat. Abre el chat');
   document.body.appendChild(cv);
   var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
@@ -60,7 +61,15 @@
     document.head.appendChild(s);
   }
 
-  var size=0;
+  var size=0, hov=0, hovT=0, pulse=0;
+  function openChat(){ pulse=1; if(window.openOrbyChat) window.openOrbyChat(); }
+  window.orbyReact=function(){ pulse=1; };
+  cv.addEventListener('contextmenu',function(e){ e.preventDefault(); openChat(); });
+  cv.addEventListener('click',function(e){ if(e.pointerType==='touch'||window.matchMedia('(hover:none)').matches) openChat(); else { pulse=.6; if(window.orbyTip) window.orbyTip('Clic derecho para hablar conmigo'); } });
+  cv.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openChat(); } });
+  cv.addEventListener('pointerenter',function(){ hovT=1; });
+  cv.addEventListener('pointerleave',function(){ hovT=0; });
+
   function resize(){ size=SIZE(); renderer.setSize(size,size,false); cv.style.width=size+'px'; cv.style.height=size+'px'; }
   window.addEventListener('resize',resize); resize();
 
@@ -82,13 +91,14 @@
   var px=window.innerWidth*.9, py=window.innerHeight*.4, vx=0, vy=0, lastY=window.scrollY, vel=0, t0=performance.now();
   var start=parseFloat(document.documentElement.getAttribute('data-orby-start')||'0.7');
   function target(t){
+    if(window.__orbyPark) return [window.__orbyPark.x, window.__orbyPark.y, null];
     var vh=window.innerHeight, W=window.innerWidth, y=window.scrollY+vh*.5, Z=vh*.35;
     if(!stops.length) return [W*.9,vh*.4,null];
     var cur=stops[0], nxt=null, k=0;
     for(var i=0;i<stops.length;i++){
       var s=stops[i], top=s.a+vh*.5, bot=s.b+vh*.5;
       if(y>=top || i===0) cur=s;
-      if(i<stops.length-1){ var B=bot; if(y>=B-Z && y<=B+Z){ cur=s; nxt=stops[i+1]; k=smooth(clamp((y-(B-Z))/(2*Z))); break; } }
+      if(i<stops.length-1){ var B=bot; if(y>=B-Z && y<=B+Z){ cur=s; nxt=stops[i+1]; k=smooth(clamp((y-(B-Z))/(2*Z),0,1)); break; } }
       if(y<bot) break;
     }
     function posOf(s){
@@ -108,14 +118,16 @@
     var t=(ms-t0)/1000, k=reduce?0:1;
     vel=vel*.9+(window.scrollY-lastY)*.1; lastY=window.scrollY;
     var vis=window.scrollY>window.innerHeight*start;
-    cv.style.opacity=vis?'1':'0';
+    cv.style.opacity=vis?'1':'0'; cv.style.pointerEvents=vis?'auto':'none'; cv.setAttribute('tabindex',vis?'0':'-1');
     var T=target(t), tx=T[0], ty=T[1];
     /* spring toward the target with a lazy, floaty feel */
     vx=(vx+(tx-px)*.012)*.88; vy=(vy+(ty-py)*.012)*.88;
     px+=vx; py+=vy;
+    if(!isFinite(px)||!isFinite(py)){px=tx;py=ty;vx=vy=0;}
     var bob=k*Math.sin(t*1.6)*8;
     cv.style.transform='translate('+(px-size/2).toFixed(1)+'px,'+(py-size/2+bob).toFixed(1)+'px)';
     /* orbiting behind something: shrink a little when going "back" */
+    hov+=(hovT-hov)*.15;
     var depth=T[2]===null?1:lerp(.82,1.08,(T[2]+1)/2);
     root.scale.setScalar(depth);
     /* tilt with motion, look at the pointer */
@@ -125,6 +137,8 @@
     body.rotation.y+=((clamp(lx*2.2,-.9,.9))-body.rotation.y)*.08;
     body.rotation.x+=((clamp(ly*1.8,-.6,.6))-body.rotation.x)*.08;
     rings.forEach(function(r,i){ r.rotation.y+=(i?-.012:.018)*(1+Math.abs(vel)*.05)*(k||.2); });
+    window.__orbyPos={x:px,y:py+bob,size:size,visible:vis};
+    root.scale.multiplyScalar(1+hov*.12+pulse*.18); pulse*=.9;
     renderer.render(scene,cam);
   }
   requestAnimationFrame(frame);

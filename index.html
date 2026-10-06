@@ -286,18 +286,14 @@ footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wra
  .svc-row:hover .plus::before,.svc-row:hover .plus::after,.svc-row:focus-visible .plus::before,.svc-row:focus-visible .plus::after{background:#fff}
 }
 .svc-row:focus-visible{outline:none}
-#svcPreview{position:fixed;left:0;top:0;width:300px;aspect-ratio:16/10;border-radius:14px;overflow:hidden;pointer-events:none;z-index:40;opacity:0;transform:translate(-50%,-50%) scale(.6);transition:opacity .35s var(--ease);box-shadow:0 30px 60px -20px rgba(0,0,0,.55)}
-#svcPreview.on{opacity:1}
-#svcPreview svg,#svcPreview img{width:100%;height:100%;object-fit:cover;display:block}
 .svc-hint{margin-top:22px;font-size:14px;color:var(--mute)}
 @media(max-width:760px){.svc-row{grid-template-columns:44px 1fr 40px;gap:8px 16px;padding:26px 0}.svc-row p{grid-column:2/3;font-size:16px}.svc-row .plus{grid-row:1;grid-column:3;width:40px;height:40px}.svc-row .num{font-size:20px}}
-@media (hover:none){#svcPreview{display:none}}
 
 /* portafolio */
 #portafolio{background:var(--bg2);padding-top:clamp(70px,10vh,120px)}
 .pf-head{max-width:880px}
-.pf-head .lead{margin-top:22px;max-width:52ch}
-.pf-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:clamp(36px,5vh,56px) 0 26px}
+.pf-head .lead{margin-top:22px;max-width:52ch;font-weight:700;color:var(--fg)}
+.pf-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:clamp(36px,5vh,56px) 0 26px}
 .pf-tabs .chip{width:100%;height:52px;padding:0 10px;font-size:16px;text-align:center}
 @media(max-width:900px){.pf-tabs{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:480px){.pf-tabs{gap:8px}.pf-tabs .chip{font-size:14px;height:46px;padding:0 4px}}@media(max-width:350px){.pf-tabs{grid-template-columns:repeat(2,1fr)}}
@@ -592,7 +588,6 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
 </footer>
 
 
-<div id="svcPreview" aria-hidden="true"></div>
 <dialog class="modal" id="svcModal" aria-labelledby="svcTitle">
   <button class="m-close" type="button" aria-label="Cerrar" data-close></button>
   <div class="m-body"><div class="svc-m">
@@ -629,10 +624,9 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
      ===================================================================== */
   var PORTAFOLIO = {
     todos:        { nombre:'Todos',        videos:[ {titulo:'Demo reel Studios 903', vimeo:''} ] },
-    audiovisual:  { nombre:'Audiovisual',  videos:[ {titulo:'Comercial de producto', vimeo:''}, {titulo:'Video 360', vimeo:''} ] },
+    audiovisual:  { nombre:'Audiovisual',  videos:[ {titulo:'Producción audiovisual', vimeo:''}, {titulo:'Video 360', vimeo:''} ] },
     '3d':         { nombre:'3D',           videos:[ {titulo:'Recorrido arquitectónico', vimeo:''} ] },
     animacion:    { nombre:'Animación',    videos:[ {titulo:'Serie animada', vimeo:''}, {titulo:'Motion graphics', vimeo:''} ] },
-    publicidad:   { nombre:'Publicidad',   videos:[ {titulo:'Campaña para redes', vimeo:''} ] },
     interactivos: { nombre:'Interactivos', videos:[ {titulo:'Videojuego', vimeo:''}, {titulo:'Experiencia de realidad virtual', vimeo:''} ] }
   };
   var SERVICIOS = [
@@ -640,6 +634,10 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
       largo:'Producimos comerciales, videos corporativos e institucionales de principio a fin: guion, rodaje (también con drones), edición, color, sonido y efectos. Y si quieres que tu público esté dentro de la escena, la grabamos en 360.',
       incluye:['Comerciales y videos corporativos','Grabación con drones','Edición, color y sonido','Video 360'],
       vimeo:'', imagen:'', color:'#CC0A5E', chip:'Video' },
+    { id:'interactivos', titulo:'Interactivos e inmersivos', corto:'Videojuegos, realidad virtual (VR), realidad aumentada (AR) y realidad mixta (MR).',
+      largo:'Construimos videojuegos, experiencias de realidad virtual, aumentada y mixta, y simuladores interactivos para que tu público no solo vea tu proyecto, sino que lo viva.',
+      incluye:['Videojuegos','Realidad virtual (VR)','Realidad aumentada y mixta (AR, MR)','Simuladores interactivos'],
+      vimeo:'', imagen:'', color:'#CC0A5E', chip:'VR, AR o MR' },
     { id:'3d', titulo:'3D', corto:'Modelado, texturizado, animación 3D y recorridos arquitectónicos que te dejan caminar un proyecto antes de construirlo.',
       largo:'Modelamos personajes, productos y espacios con detalle, los texturizamos y los animamos. Con nuestros recorridos arquitectónicos puedes caminar un proyecto antes de construirlo y venderlo desde los planos.',
       incluye:['Modelado orgánico e inorgánico','Texturizado e iluminación','Animación 3D','Recorridos arquitectónicos y renders'],
@@ -650,12 +648,8 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
       vimeo:'', imagen:'', color:'#CC0A5E', chip:'Animación' },
     { id:'publicidad', titulo:'Publicidad y contenido', corto:'Estrategia y diseño publicitario para redes sociales.',
       largo:'Pensamos la estrategia, diseñamos las piezas y producimos el contenido para que tu marca se vea y se mueva bien en redes. Todo con el mismo equipo que graba, anima y modela.',
-      incluye:['Estrategia de contenido','Diseño publicitario para redes','Campañas y piezas animadas','Producción con IA'],
-      vimeo:'', imagen:'', color:'#1F8991', chip:'Publicidad' },
-    { id:'interactivos', titulo:'Interactivos e inmersivos', corto:'Videojuegos, realidad virtual (VR), realidad aumentada (AR) y realidad mixta (MR).',
-      largo:'Construimos videojuegos, experiencias de realidad virtual, aumentada y mixta, y simuladores interactivos para que tu público no solo vea tu proyecto, sino que lo viva.',
-      incluye:['Videojuegos','Realidad virtual (VR)','Realidad aumentada y mixta (AR, MR)','Simuladores interactivos'],
-      vimeo:'', imagen:'', color:'#CC0A5E', chip:'VR, AR o MR' }
+      incluye:['Estrategia de contenido','Diseño publicitario para redes','Campañas y piezas animadas'],
+      vimeo:'', imagen:'', color:'#1F8991', chip:'Publicidad' }
   ];
   /* Bobby Moon: cambia a true cuando la página bobby.html tenga su contenido; el botón pasará de "Muy pronto" a "Ver más". */
   var BOBBY_PAGINA_LISTA = false;
@@ -673,6 +667,12 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
         formacion:['[Título o estudio, institución, año]'], experiencia:['[Cargo o proyecto, empresa, años]'] },
       { nombre:'Andrés Felipe Chaves', rol:'Socio', foto:'',
         bio:'[Escribe aquí un párrafo corto sobre Andrés Felipe: qué hace en el estudio y en qué se especializa.]',
+        formacion:['[Título o estudio, institución, año]'], experiencia:['[Cargo o proyecto, empresa, años]'] },
+      { nombre:'Daniel Fandiño', rol:'Socio', foto:'',
+        bio:'[Escribe aquí un párrafo corto sobre Daniel: qué hace en el estudio y en qué se especializa.]',
+        formacion:['[Título o estudio, institución, año]'], experiencia:['[Cargo o proyecto, empresa, años]'] },
+      { nombre:'Juan Diego Sánchez', rol:'Socio', foto:'',
+        bio:'[Escribe aquí un párrafo corto sobre Juan Diego: qué hace en el estudio y en qué se especializa.]',
         formacion:['[Título o estudio, institución, año]'], experiencia:['[Cargo o proyecto, empresa, años]'] }
     ]
   };
@@ -904,7 +904,7 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
   });
 
   /* ---- services ---- */
-  var svcList=document.getElementById('svcList'), svcModal=document.getElementById('svcModal'), preview=document.getElementById('svcPreview');
+  var svcList=document.getElementById('svcList'), svcModal=document.getElementById('svcModal');
   svcList.innerHTML=SERVICIOS.map(function(sv,i){
     return '<li style="transition-delay:'+(i*0.09)+'s"><button class="svc-row" type="button" data-i="'+i+'" aria-haspopup="dialog">'+
       '<span class="num">0'+(i+1)+'</span><h3><span class="tt" style="transition-delay:'+(0.12+i*0.09)+'s"><span>'+esc(sv.titulo)+'</span></span></h3><p>'+esc(sv.corto)+'</p><span class="plus" aria-hidden="true"></span></button></li>';
@@ -925,29 +925,11 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
       closeModal(svcModal);
       document.querySelectorAll('#types .chip').forEach(function(b){ if(b.textContent.trim()===sv.chip) b.setAttribute('aria-pressed','true'); });
     };
-    document.getElementById('svcPf').onclick=function(){ closeModal(svcModal); selectArea(sv.id); };
+    var pfB=document.getElementById('svcPf'); pfB.style.display=PORTAFOLIO[sv.id]?'':'none';
+    pfB.onclick=function(){ closeModal(svcModal); selectArea(sv.id); };
     openModal(svcModal);
   }
-  svcRows.forEach(function(b){ b.addEventListener('click',function(){ preview.classList.remove('on'); openService(+b.dataset.i); }); });
-  /* floating preview that follows the cursor */
-  var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-  if(fine && !reduce){
-    var px=0,py=0,cx=0,cy=0,active=-1,pv=0;
-    var previews=SERVICIOS.map(function(sv){return sv.imagen?'<img src="'+esc(sv.imagen)+'" alt="">':art(sv.color);});
-    svcRows.forEach(function(b){
-      b.addEventListener('pointerenter',function(e){ var i=+b.dataset.i; if(active!==i){preview.innerHTML=previews[i];active=i;} if(!preview.classList.contains('on')){cx=px=e.clientX;cy=py=e.clientY;} preview.classList.add('on'); });
-      b.addEventListener('pointerleave',function(){ preview.classList.remove('on'); });
-    });
-    window.addEventListener('pointermove',function(e){px=e.clientX;py=e.clientY;},{passive:true});
-    (function loop(){
-      requestAnimationFrame(loop);
-      var dx=px-cx; cx+=dx*.14; cy+=(py-cy)*.14;
-      pv+=(dx*.06-pv)*.2;
-      var on=preview.classList.contains('on');
-      preview.style.transform='translate('+(cx+40)+'px,'+(cy-130)+'px) rotate('+clamp(pv,-10,10).toFixed(2)+'deg) scale('+(on?1:.6)+')';
-    })();
-  }
-
+  svcRows.forEach(function(b){ b.addEventListener('click',function(){ openService(+b.dataset.i); }); });
   /* ---- portafolio ---- */
   var pfTabs=document.getElementById('pfTabs'), pfStage=document.getElementById('pfStage'), areas=Object.keys(PORTAFOLIO);
   var ACC={todos:'#CC0A5E',audiovisual:'#CC0A5E','3d':'#1F8991',animacion:'#CC0A5E',publicidad:'#1F8991',interactivos:'#1F8991'};
@@ -976,8 +958,8 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
   var aboutModal=document.getElementById('aboutModal');
   document.getElementById('abText').innerHTML='<p class="lead">'+esc(NOSOTROS.intro)+'</p><p>'+esc(NOSOTROS.historia)+'</p>';
   document.getElementById('abTeam').innerHTML=NOSOTROS.socios.map(function(p,i){
-    var ini=p.nombre.split(' ').filter(Boolean); ini=(ini[0][0]+(ini[2]||ini[1]||' ')[0]).toUpperCase();
-    var bg=['#CC0A5E','#1F8991','#0A0A0A'][i%3];
+    var ini=p.nombre.split(' ').filter(Boolean); ini=(ini[0][0]+(ini.length>3?ini[2]:ini[ini.length-1])[0]).toUpperCase();
+    var bg=['#CC0A5E','#1F8991','#0A0A0A','#4D4C4C','#CC0A5E'][i%5];
     return '<article class="mate"><div class="ph" style="background:'+bg+'">'+(p.foto?'<img src="'+esc(p.foto)+'" alt="'+esc(p.nombre)+'">':'<span class="ini">'+ini+'</span>')+'</div>'+
       '<h3>'+esc(p.nombre)+'</h3><div class="rol">'+esc(p.rol)+'</div><p>'+esc(p.bio)+'</p>'+
       '<h4>Formación</h4><ul>'+p.formacion.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>'+
@@ -1122,5 +1104,6 @@ html[data-tone="teal"] .orb>svg ellipse{stroke:#fff}
 </script>
 <script>/* Modelo de Orby: pon aquí la ruta del .glb cuando lo tengas, por ejemplo 'assets/models/orby.glb' */ window.ORBY_MODELO='';</script>
 <script src="assets/js/orby.js"></script>
+<script src="assets/js/orby-chat.js"></script>
 </body>
 </html>
